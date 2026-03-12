@@ -49,6 +49,7 @@ void Game::init()
 
     prevTick = SDL_GetTicks();
     currentTick = 0;
+    dt = 0.0f;
 
     initObjects();
 }
@@ -135,6 +136,7 @@ void Game::handleInput()
 void Game::update(float dt)
 {
     player->update(dt);
+    ball->update(dt);
 }
 
 void Game::render()
@@ -142,6 +144,7 @@ void Game::render()
     objectRenderer->begin();
 
     player->render(*objectRenderer);
+    ball->render(*objectRenderer);
 
     objectRenderer->end();
 }

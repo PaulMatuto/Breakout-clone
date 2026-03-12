@@ -21,7 +21,6 @@ void Player::update(float dt)
         x += speed * dt;
     }
     playerRect.x = x;
-    playerRect.y = y;
 }
 
 void Player::setMoveLeft(bool shouldMove)
