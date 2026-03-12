@@ -19,5 +19,5 @@ void Ball::update(float dt)
 
 void Ball::render(ObjectRenderer& objRenderer)
 {
-    objRenderer.drawRect(ballRect);
+    objRenderer.drawRect(ballRect, 0x0, 0xFF, 0x0, 0xFF);
 }

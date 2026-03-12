@@ -34,5 +34,5 @@ void Player::setMoveRight(bool shouldMove)
 
 void Player::render(ObjectRenderer& objRenderer)
 {
-    objRenderer.drawRect(playerRect);
+    objRenderer.drawRect(playerRect, 0xFF, 0xFF, 0xFF, 0xFF);
 }

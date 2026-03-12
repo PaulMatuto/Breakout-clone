@@ -8,7 +8,6 @@ void ObjectRenderer::begin()
 {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
 void ObjectRenderer::end()
@@ -16,7 +15,8 @@ void ObjectRenderer::end()
     SDL_RenderPresent(renderer);
 }
 
-void ObjectRenderer::drawRect(SDL_FRect rect)
+void ObjectRenderer::drawRect(SDL_FRect rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
     SDL_RenderFillRectF(renderer, &rect);
 }
