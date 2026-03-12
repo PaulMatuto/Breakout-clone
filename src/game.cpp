@@ -56,14 +56,14 @@ void Game::init()
 
 void Game::initObjects()
 {
-    float playerWidth = 10.0f;
-    float playerHeight = 10.0f;
-    player = new Player((SCREEN_WIDTH - playerWidth) / 2.0f, (SCREEN_HEIGHT - playerHeight) / 2.0f, 
+    // Initialize game objects
+    float playerWidth = 200.0f;
+    float playerHeight = 30.0f;
+    player = new Player((SCREEN_WIDTH - playerWidth) / 2.0f, (SCREEN_HEIGHT - playerHeight) * 0.90, 
                             playerWidth, playerHeight, OBJ_SPEED);
 
-    float ballWidth = 10.0f;
-    float ballHeight = 10.0f;
-    ball = new Ball(100.0f, 100.0f, ballWidth, ballHeight, OBJ_SPEED);
+    float ballSize = 30.0f;
+    ball = new Ball(100.0f, 100.0f, ballSize, ballSize, OBJ_SPEED);
 }
 
 bool Game::isRunning()
@@ -89,12 +89,13 @@ void Game::handleInput()
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
-        // Allows quitting through the window X button
         switch (event.type)
         {
+            // Allows quitting through the window X button
             case SDL_QUIT:
                 running = false;
                 break;
+            // Allows movement of the player
             case SDL_KEYDOWN:
                 switch(event.key.keysym.scancode)
                 {
@@ -127,9 +128,7 @@ void Game::handleInput()
                 break;
             default:
                 break;
-        }
-
-        
+        }   
     }
 }
 

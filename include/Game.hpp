@@ -25,7 +25,7 @@ class Game{
     // constants
     const int SCREEN_WIDTH = 1280;
     const int SCREEN_HEIGHT = 720;
-    const float OBJ_SPEED = 100;
+    const float OBJ_SPEED = 250.0f;
 
     SDL_Window* window;
     SDL_Renderer* renderer;
