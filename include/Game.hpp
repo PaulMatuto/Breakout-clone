@@ -3,8 +3,11 @@
 #include <SDL2/SDL.h>
 
 #include "Ball.hpp"
+#include "Brick.hpp"
 #include "Player.hpp"
 #include "ObjectRenderer.hpp"
+
+#include <vector>
 
 class Game{
   public:
@@ -36,6 +39,10 @@ class Game{
 
     Player* player;
     Ball* ball;
+
+    int noOfRows;
+    int noOfColumns;
+    std::vector<Brick*> bricks;
 
     Uint32 prevTick;
     Uint32 currentTick;

@@ -64,6 +64,23 @@ void Game::initObjects()
 
     float ballSize = 30.0f;
     ball = new Ball(100.0f, 100.0f, ballSize, ballSize, OBJ_SPEED);
+
+    // Create a grid of bricks
+    float brickWidth = 285.0f;
+    float brickHeight = 30.0f;
+    float margin = 40.0f;
+    float brickGap = 20.0f;
+    noOfRows = 3;
+    noOfColumns = 4;
+    for(int rowNum = 0; rowNum < noOfRows; rowNum++)
+    {
+        for(int columnNum = 0; columnNum < noOfColumns; columnNum++)
+        {
+            bricks.push_back(new Brick(margin + (brickWidth + brickGap) * columnNum,
+                                          margin + (brickHeight + brickGap) * rowNum,
+                                          brickWidth, brickHeight));
+        }
+    }
 }
 
 bool Game::isRunning()
@@ -136,6 +153,11 @@ void Game::update(float dt)
 {
     player->update(dt);
     ball->update(dt);
+
+    for (Brick* brick : bricks)
+    {
+        brick->update(dt);
+    }
 }
 
 void Game::render()
@@ -144,6 +166,11 @@ void Game::render()
 
     player->render(*objectRenderer);
     ball->render(*objectRenderer);
+
+    for (Brick* brick : bricks)
+    {
+        brick->render(*objectRenderer);
+    }
 
     objectRenderer->end();
 }
