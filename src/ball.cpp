@@ -11,7 +11,7 @@ Ball::Ball(float x, float y, float w, float h, float speed)
 void Ball::update(float dt)
 {
     x += speed * dt;
-    y += speed * dt;
+    y += -speed * dt;
 
     ballRect.x = x;
     ballRect.y = y;

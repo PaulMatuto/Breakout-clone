@@ -59,11 +59,12 @@ void Game::initObjects()
     // Initialize game objects
     float playerWidth = 200.0f;
     float playerHeight = 30.0f;
-    player = new Player((SCREEN_WIDTH - playerWidth) / 2.0f, (SCREEN_HEIGHT - playerHeight) * 0.90, 
+    float playerY = (SCREEN_HEIGHT - playerHeight) * 0.90;
+    player = new Player((SCREEN_WIDTH - playerWidth) / 2.0f, playerY, 
                             playerWidth, playerHeight, OBJ_SPEED);
 
     float ballSize = 30.0f;
-    ball = new Ball(100.0f, 100.0f, ballSize, ballSize, OBJ_SPEED);
+    ball = new Ball((SCREEN_WIDTH - ballSize) / 2, playerY - ballSize, ballSize, ballSize, OBJ_SPEED);
 
     // Create a grid of bricks
     float brickWidth = 285.0f;
