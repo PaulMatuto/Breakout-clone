@@ -61,7 +61,7 @@ void Game::initObjects()
     float playerHeight = 30.0f;
     float playerY = (SCREEN_HEIGHT - playerHeight) * 0.90;
     player = new Player((SCREEN_WIDTH - playerWidth) / 2.0f, playerY, 
-                            playerWidth, playerHeight, OBJ_SPEED);
+                            playerWidth, playerHeight, OBJ_SPEED * 2.0f);
 
     float ballSize = 30.0f;
     ball = new Ball((SCREEN_WIDTH - ballSize) / 2, playerY - ballSize, ballSize, ballSize, OBJ_SPEED);
@@ -89,6 +89,7 @@ bool Game::isRunning()
     return running;
 }
 
+// Main game loop
 void Game::run()
 {    
     handleInput();

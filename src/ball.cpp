@@ -30,10 +30,16 @@ SDL_FRect Ball::getRect()
 
 void Ball::invertYSpeed()
 {
+    ballRect.x = x;
+    ballRect.y = y;
+
     ySpeed *= -1;
 }
 
 void Ball::invertXSpeed()
 {
+    ballRect.x = x;
+    ballRect.y = y;
+    
     xSpeed *= -1;
 }
