@@ -10,9 +10,10 @@ Brick::Brick(float x, float y, float w, float h)
 
 void Brick::update(float dt)
 {
+    // remove bricks if not 'alive'
     if (!isAlive)
     {
-        brickRect = {NULL, NULL, NULL, NULL};
+        brickRect = {};
     }
 }
 
