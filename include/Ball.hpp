@@ -11,8 +11,13 @@ class Ball : Entity {
     void update(float dt) override;
     void render(ObjectRenderer& objRenderer) override;
 
+    SDL_FRect getRect();
+
+    void invertXSpeed();
+    void invertYSpeed();
+
   private:
-    float speed;
+    float xSpeed, ySpeed;
 
     SDL_FRect ballRect;
 };

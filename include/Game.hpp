@@ -23,6 +23,11 @@ class Game{
     void handleInput();
     void update(float dt);
     void render();
+
+    void checkCollision();
+    bool isColliding(SDL_FRect rect1, SDL_FRect rect2);
+    bool wallXCollision(SDL_FRect rect);
+    bool wallYCollision(SDL_FRect rect);
     
   private:
     // constants

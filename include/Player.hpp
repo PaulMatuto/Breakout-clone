@@ -14,6 +14,8 @@ class Player : Entity {
     void setMoveLeft(bool shouldMove);
     void setMoveRight(bool shouldMove);
 
+    SDL_FRect getRect();
+
   private:
     bool moveLeft;
     bool moveRight;

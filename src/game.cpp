@@ -154,11 +154,13 @@ void Game::update(float dt)
 {
     player->update(dt);
     ball->update(dt);
-
+    
     for (Brick* brick : bricks)
     {
         brick->update(dt);
     }
+
+    checkCollision();
 }
 
 void Game::render()
@@ -174,6 +176,58 @@ void Game::render()
     }
 
     objectRenderer->end();
+}
+
+void Game::checkCollision()
+{
+    if (isColliding(player->getRect(), ball->getRect()))
+    {
+        ball->invertYSpeed();
+    }
+
+    for (Brick* brick : bricks)
+    {
+        if (isColliding(brick->getRect(), ball->getRect()))
+        {
+            ball->invertYSpeed();
+            brick->isHit();
+        }
+    }
+
+    if (wallXCollision(ball->getRect()))
+    {
+        ball->invertXSpeed();
+    }
+    if (wallYCollision(ball->getRect()))
+    {
+        ball->invertYSpeed();
+    }
+}
+
+bool Game::isColliding(SDL_FRect rect1, SDL_FRect rect2)
+{
+    return(
+        rect1.x + rect1.w > rect2.x &&
+        rect1.x < rect2.x + rect2.w &&
+        rect1.y + rect1.h > rect2.y &&
+        rect1.y < rect2.y + rect2.h
+    );
+}
+
+bool Game::wallXCollision(SDL_FRect rect)
+{
+    return(
+        rect.x + rect.w > SCREEN_WIDTH ||
+        rect.x < 0        
+    );
+}
+
+bool Game::wallYCollision(SDL_FRect rect)
+{
+    return(
+        rect.y + rect.h > SCREEN_HEIGHT ||
+        rect.y < 0       
+    );
 }
 
 void Game::shutdown()

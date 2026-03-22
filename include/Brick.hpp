@@ -9,6 +9,12 @@ class Brick : Entity {
     void update(float dt) override;
     void render(ObjectRenderer& objRenderer) override;
 
+    void isHit();
+
+    SDL_FRect getRect();
+
   private:
     SDL_FRect brickRect;
+
+    bool isAlive;
 };

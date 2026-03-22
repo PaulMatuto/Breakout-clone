@@ -36,3 +36,8 @@ void Player::render(ObjectRenderer& objRenderer)
 {
     objRenderer.drawRect(playerRect, 0xFF, 0xFF, 0xFF, 0xFF);
 }
+
+SDL_FRect Player::getRect()
+{
+    return playerRect;
+}
